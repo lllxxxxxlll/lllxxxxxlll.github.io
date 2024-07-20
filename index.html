@@ -81,7 +81,57 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>在博客的上传中一般是用hexo n来创建新的内容，然后用nano来编辑具体内容，内容的类型应该可以很多，但具体还是可以探索，封面之类的应该也能进一步完善，要是能再加一个页面密码认证那也不错。<br>在具体的学习过程中，也逐渐了解了这些网页内容得以实现的依托主要还在于计算机服务的搭建，而这种搭建也可以借助云服务来实现，在阿里云的ecs云端服务中应该能利用虚拟机实现一些不一样的东西，从今天开始的一个月加六个月免费试用，还有300元优惠卷的使用中，一定要学到一些东西，真的越来越有趣了呢，加油加油加油</p>
+        <h2 id="yaml"><a href="#yaml" class="headerlink" title="yaml"></a>yaml</h2><p>title:study on myself<br>在博客的上传中一般是用hexo n来创建新的内容，然后用nano来编辑具体内容，内容的类型应该可以很多，但具体还是可以探索，封面之类的应该也能进一步完善，要是能再加一个页面密码认证那也不错。<br>User: Hexo 支持哪些类型的文件格式，我需要准备哪些文件来开始写作？ </p>
+<p>Kimi: Hexo 是一个静态网站生成器，它支持多种文件格式来创建博客文章和页面。以下是一些主要的文件格式和你需要准备的文件类型来开始写作：</p>
+<h3 id="1-Markdown-文件-md"><a href="#1-Markdown-文件-md" class="headerlink" title="1. Markdown 文件 (.md)"></a>1. Markdown 文件 (.md)</h3><ul>
+<li><strong>用途</strong>：用于编写博客文章和页面内容。Markdown 是一种轻量级标记语言，允许你使用简单的文本格式编写内容，然后转换成 HTML。</li>
+<li><strong>扩展名</strong>：<code>.md</code> 或 <code>.markdown</code>。</li>
+</ul>
+<h3 id="2-HTML-文件-html"><a href="#2-HTML-文件-html" class="headerlink" title="2. HTML 文件 (.html)"></a>2. HTML 文件 (.html)</h3><ul>
+<li><strong>用途</strong>：如果你需要更多的自定义性，可以直接编写 HTML 文件作为页面或文章。</li>
+<li><strong>扩展名</strong>：<code>.html</code>。</li>
+</ul>
+<h3 id="3-YML-前置数据-YAML-Front-Matter"><a href="#3-YML-前置数据-YAML-Front-Matter" class="headerlink" title="3. YML 前置数据 (YAML Front Matter)"></a>3. YML 前置数据 (YAML Front Matter)</h3><ul>
+<li><strong>用途</strong>：在 Markdown 或 HTML 文件的开头，你可以使用 YAML 格式的前置数据来定义文章的元数据，如标题、日期、分类、标签等。</li>
+<li><strong>示例</strong>：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">My</span> <span class="string">First</span> <span class="string">Post</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-07-21 10:00:00</span></span><br><span class="line"><span class="attr">categories:</span> [<span class="string">Hexo</span>, <span class="string">Tutorial</span>]</span><br><span class="line"><span class="attr">tags:</span> [<span class="string">blogging</span>, <span class="string">static</span> <span class="string">site</span> <span class="string">generator</span>]</span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="string">This</span> <span class="string">is</span> <span class="string">the</span> <span class="string">content</span> <span class="string">of</span> <span class="string">my</span> <span class="string">first</span> <span class="string">post.</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-资源文件-如图片、CSS、JavaScript"><a href="#4-资源文件-如图片、CSS、JavaScript" class="headerlink" title="4. 资源文件 (如图片、CSS、JavaScript)"></a>4. 资源文件 (如图片、CSS、JavaScript)</h3><ul>
+<li><strong>用途</strong>：除了文本内容，你可能还需要添加图片、样式表和脚本来增强你的博客。</li>
+<li><strong>文件类型</strong>：<code>.jpg</code>, <code>.png</code>, <code>.css</code>, <code>.js</code> 等。</li>
+</ul>
+<h3 id="5-配置文件-config-yml"><a href="#5-配置文件-config-yml" class="headerlink" title="5. 配置文件 (_config.yml)"></a>5. 配置文件 (_config.yml)</h3><ul>
+<li><strong>用途</strong>：Hexo 的全局配置文件，用于设置网站的基本参数、部署信息、主题和其他插件。</li>
+<li><strong>扩展名</strong>：<code>.yml</code>。</li>
+</ul>
+<h3 id="6-主题文件"><a href="#6-主题文件" class="headerlink" title="6. 主题文件"></a>6. 主题文件</h3><ul>
+<li><strong>用途</strong>：Hexo 主题通常包含一系列的布局文件、样式表和脚本，用于定义网站的外观和行为。</li>
+</ul>
+<h3 id="7-插件文件"><a href="#7-插件文件" class="headerlink" title="7. 插件文件"></a>7. 插件文件</h3><ul>
+<li><strong>用途</strong>：Hexo 插件可以扩展 Hexo 的功能，如添加 SEO 优化、评论系统等。</li>
+</ul>
+<h3 id="8-草稿文件-draft-md"><a href="#8-草稿文件-draft-md" class="headerlink" title="8. 草稿文件 (.draft.md)"></a>8. 草稿文件 (.draft.md)</h3><ul>
+<li><strong>用途</strong>：草稿文件用于存放尚未完成的文章，它们不会被包含在最终生成的站点中，直到它们被移动到 <code>_posts</code> 文件夹并移除 <code>.draft</code> 前缀。</li>
+</ul>
+<h3 id="9-其他资源文件"><a href="#9-其他资源文件" class="headerlink" title="9. 其他资源文件"></a>9. 其他资源文件</h3><ul>
+<li><strong>用途</strong>：根据你的需求，可能还会有其他资源文件，如字体文件、视频文件等。</li>
+</ul>
+<h3 id="开始写作的步骤："><a href="#开始写作的步骤：" class="headerlink" title="开始写作的步骤："></a>开始写作的步骤：</h3><ol>
+<li><p><strong>创建文章</strong>：使用 Hexo 命令创建新文章：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My First Post&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>编辑文章</strong>：使用文本编辑器编辑新创建的文章文件，添加 YAML 前置数据和 Markdown 内容。</p>
+</li>
+<li><p><strong>添加资源</strong>：如果需要，将图片、样式、脚本等资源文件放到 <code>source</code> 目录的相应子目录中。</p>
+</li>
+<li><p><strong>本地预览</strong>：使用 <code>hexo server</code> 命令预览你的博客。</p>
+</li>
+<li><p><strong>生成静态文件</strong>：使用 <code>hexo generate</code> 或简写 <code>hexo g</code> 生成静态文件。</p>
+</li>
+<li><p><strong>部署</strong>：使用 <code>hexo deploy</code> 命令将生成的静态文件部署到远程仓库。</p>
+</li>
+</ol>
+<p>通过这些步骤，你可以开始使用 Hexo 写作并管理你的博客。如果你有任何问题或需要更多帮助，请随时告诉我。 </p>
+<p>在具体的学习过程中，也逐渐了解了这些网页内容得以实现的依托主要还在于计算机服务的搭建，而这种搭建也可以借助云服务来实现，在阿里云的ecs云端服务中应该能利用虚拟机实现一些不一样的东西，从今天开始的一个月加六个月免费试用，还有300元优惠卷的使用中，一定要学到一些东西，真的越来越有趣了呢，加油加油加油</p>
 
       
     </div>
