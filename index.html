@@ -214,7 +214,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-10-14 00:21:06" itemprop="dateModified" datetime="2025-10-14T00:21:06+08:00">2025-10-14</time>
+                <time title="Modified: 2025-10-15 15:54:28" itemprop="dateModified" datetime="2025-10-15T15:54:28+08:00">2025-10-15</time>
               </span>
 
           <br>
@@ -247,19 +247,27 @@
 </blockquote>
 <h1 id="数组相关内容"><a href="#数组相关内容" class="headerlink" title="数组相关内容"></a>数组相关内容</h1><p>开辟二维动态数组与内存分配和指针使用息息相关,在其中涉及到一个很重要的内容就是<strong>行指针</strong>.一般行指针的作用就是作为每一行能够标识的指针,用以索引到特定的一行,这一行内容,可以是指向二维数组行中的其他内容,也可以是指向一个字符串内容,下面从两种分配方式中来看有关行指针的运用</p>
 <ul>
-<li><strong>分配指针数组+每行单独分配</strong>:<br>先分配行指针:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int** arr=(int**)malloc(n*sizeof(int*));</span><br><span class="line">```  </span><br><span class="line">为每一行单独分配</span><br></pre></td></tr></table></figure>
-for(int i&#x3D;0;i&lt;m;i++)<br>{<br>  arr[i]&#x3D;(int*)malloc(m*sizeof(int))<br>}<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**缺点**:空间不连续,在free的时候需要依次free</span><br></pre></td></tr></table></figure>
-for(int i&#x3D;0;i&lt;n;i++)<br>{<br>  free(arr[i]);<br>}<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- **一次性分配所有空间**:\</span><br><span class="line">先分配所有所需空间:</span><br></pre></td></tr></table></figure>
-int* data&#x3D;(int*)(rows<em>cols</em>sizeof(int));<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">再分配行指针</span><br></pre></td></tr></table></figure>
-int** arr&#x3D;(int**)malloc(rows<em>sizeof(int</em>));<br>for(int i&#x3D;0;i&lt;rows;i++)<br>{<br>  arr[i]&#x3D;data+i*cols;<br>}<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**优点**:内存连续,可以一次性释放空间</span><br></pre></td></tr></table></figure>
-free(data);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 对常见参数的分析</span><br></pre></td></tr></table></figure>
-char** removeAnagrams(char** words, int wordsSize, int* returnSize)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- **words**:\</span><br><span class="line">是一个指向char*的指针,具体结构表现为字符串数组的形式\</span><br><span class="line">word[i]表示第i个字符串,这个字符串通常以&#x27;/0&#x27;结尾</span><br><span class="line">- **wordsSize**:\</span><br><span class="line">表示 words 中字符串的数量(元素个数).\</span><br><span class="line">必须和 words 一起使用，函数不能通过 words 本身推断长度（C 不携带数组长度信息）</span><br></pre></td></tr></table></figure>
-int wordsSize &#x3D; sizeof(words) &#x2F; sizeof(words[0]); &#x2F;&#x2F; 对静态数组有效<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- ***returnSize**:\</span><br><span class="line">在程序中如果不同部分要进行值的传递,并且这个值不处于特定return的部分,则一定要用指针来指向存储数字的值,以此达到直接修改地址上的值的目的.否则这个值就会随着函数的结束而被删除,一直被更拷贝,无法完成传递值的目的</span><br></pre></td></tr></table></figure>
-&#x2F;&#x2F;函数内部<br><em>returnSize &#x3D; result_count; &#x2F;&#x2F; 把结果个数写回给调用者<br>return result_array;        &#x2F;&#x2F; 返回 char</em>*<br>&#x2F;&#x2F;调用者<br>int outSize;<br>char **result &#x3D; removeAnagrams(words, wordsSize, &amp;outSize);<br>&#x2F;&#x2F; now outSize 是 result 数组的长度<br>for (int i &#x3D; 0; i &lt; outSize; ++i) printf(“%s\n”, result[i]);</li>
+<li><strong>分配指针数组+每行单独分配</strong>:</li>
 </ul>
-<pre><code>**重点**:在调用者中,一定要将outSize的地址传递过去,完成值的修改.
+<p>先分配行指针:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int** arr=(int**)malloc(n*sizeof(int*));</span><br><span class="line">```  </span><br><span class="line">为每一行单独分配</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>for(int i&#x3D;0;i&lt;m;i++)<br>{<br>    arr[i]&#x3D;(int*)malloc(m*sizeof(int))<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**缺点**:空间不连续,在free的时候需要依次free</span><br></pre></td></tr></table></figure>
+<p>for(int i&#x3D;0;i&lt;n;i++)<br>{<br>    free(arr[i]);<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **一次性分配所有空间**:</span><br><span class="line"></span><br><span class="line">先分配所有所需空间:</span><br></pre></td></tr></table></figure>
+<p>int* data&#x3D;(int*)(rows<em>cols</em>sizeof(int));</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">再分配行指针</span><br></pre></td></tr></table></figure>
+<p>int** arr&#x3D;(int**)malloc(rows<em>sizeof(int</em>));<br>for(int i&#x3D;0;i&lt;rows;i++)<br>{<br>    arr[i]&#x3D;data+i*cols;<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**优点**:内存连续,可以一次性释放空间</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>free(data);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 对常见参数的分析</span><br></pre></td></tr></table></figure>
+<p>char** removeAnagrams(char** words, int wordsSize, int* returnSize)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- **words**:\</span><br><span class="line">是一个指向char*的指针,具体结构表现为字符串数组的形式\</span><br><span class="line">word[i]表示第i个字符串,这个字符串通常以&#x27;/0&#x27;结尾</span><br><span class="line">- **wordsSize**:\</span><br><span class="line">表示 words 中字符串的数量(元素个数).\</span><br><span class="line">必须和 words 一起使用，函数不能通过 words 本身推断长度（C 不携带数组长度信息）</span><br></pre></td></tr></table></figure>
+<p>int wordsSize &#x3D; sizeof(words) &#x2F; sizeof(words[0]); &#x2F;&#x2F; 对静态数组有效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- ***returnSize**:\</span><br><span class="line">在程序中如果不同部分要进行值的传递,并且这个值不处于特定return的部分,则一定要用指针来指向存储数字的值,以此达到直接修改地址上的值的目的.否则这个值就会随着函数的结束而被删除,一直被更拷贝,无法完成传递值的目的</span><br></pre></td></tr></table></figure>
+<p>&#x2F;&#x2F;函数内部<br><em>returnSize &#x3D; result_count; &#x2F;&#x2F; 把结果个数写回给调用者<br>return result_array;        &#x2F;&#x2F; 返回 char</em>*<br>&#x2F;&#x2F;调用者<br>int outSize;<br>char **result &#x3D; removeAnagrams(words, wordsSize, &amp;outSize);<br>&#x2F;&#x2F; now outSize 是 result 数组的长度<br>for (int i &#x3D; 0; i &lt; outSize; ++i) printf(“%s\n”, result[i]);</p>
+<pre><code>**重点**:&lt;p&gt;在调用者中,一定要将&lt;span style=&quot;color: yellow&quot;&gt;outSize的地址&lt;/span&gt;传递过去,完成值的修改.&lt;/p&gt;
 
-&amp; 4&lt;5
 
 </code></pre>
 
