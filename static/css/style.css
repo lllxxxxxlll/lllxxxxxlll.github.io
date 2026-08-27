@@ -1,0 +1,204 @@
+/* 极简 cnblogs 风：单列、文字优先、克制配色 */
+
+:root {
+  --bg: #ffffff;
+  --fg: #2f2f2f;
+  --muted: #777;
+  --faint: #b0b0b0;
+  --line: #eaeaea;
+  --accent: #0b6e6e;      /* 墨绿，克制且有个性 */
+  --accent-soft: #eef5f4;
+  --code-bg: #f7f7f7;
+  --code-fg: #333;
+  --maxw: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC",
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ---- header ---- */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+}
+.header-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.site-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: 0.5px;
+}
+.site-title:hover { text-decoration: none; color: var(--accent); }
+.site-nav { display: flex; gap: 18px; font-size: 15px; }
+.site-nav a { color: var(--muted); }
+.site-nav a:hover { color: var(--accent); text-decoration: none; }
+.site-nav a.active { color: var(--accent); font-weight: 600; }
+
+/* ---- main spacing ---- */
+main.container { padding-top: 40px; padding-bottom: 48px; min-height: 60vh; }
+
+/* ---- home intro ---- */
+.home-intro { padding: 8px 0 24px; border-bottom: 1px solid var(--line); }
+.home-title { font-size: 34px; margin: 0 0 4px; letter-spacing: 1px; }
+.home-subtitle { color: var(--muted); margin: 0 0 16px; font-size: 16px; }
+.home-body { color: var(--fg); }
+.home-body p { margin: 0 0 8px; }
+
+/* ---- list / card ---- */
+.list-header { border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+.list-header h1 { font-size: 26px; margin: 0 0 4px; }
+.list-desc { color: var(--muted); font-size: 15px; margin: 0 0 16px; }
+.list-heading { font-size: 18px; margin: 32px 0 8px; color: var(--fg); }
+.list-nav-links { font-size: 14px; color: var(--faint); margin: 0 0 4px; }
+.list-nav-links a { color: var(--muted); }
+
+.post-card { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.post-card .post-title { font-size: 20px; margin: 0 0 6px; line-height: 1.4; }
+.post-card .post-title a { color: var(--fg); }
+.post-card .post-title a:hover { color: var(--accent); text-decoration: none; }
+
+.post-meta {
+  font-size: 13px;
+  color: var(--faint);
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.meta-cat {
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.meta-cat:hover { text-decoration: none; }
+
+.post-summary { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+.more-link { margin-top: 24px; }
+.more-link a { color: var(--muted); }
+.more-link a:hover { color: var(--accent); }
+.empty { color: var(--muted); }
+
+/* ---- single post ---- */
+.post { padding-bottom: 24px; }
+.post > .post-title { font-size: 28px; margin: 0 0 12px; line-height: 1.35; }
+.post-body { margin-top: 8px; }
+.post-body h2 { font-size: 22px; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.post-body h3 { font-size: 18px; margin: 26px 0 10px; }
+.post-body h4 { font-size: 16px; margin: 22px 0 8px; }
+.post-body p { margin: 0 0 16px; }
+.post-body ul, .post-body ol { margin: 0 0 16px; padding-left: 24px; }
+.post-body li { margin: 4px 0; }
+.post-body blockquote {
+  margin: 16px 0;
+  padding: 8px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  color: #444;
+}
+.post-body img { max-width: 100%; height: auto; border-radius: 4px; }
+.post-body hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+.post-body a { border-bottom: 1px solid var(--line); }
+.post-body a:hover { border-bottom-color: var(--accent); text-decoration: none; }
+
+/* inline code */
+code {
+  font-family: "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: var(--code-fg);
+}
+
+/* code blocks (hugo highlight) */
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  line-height: 1.6;
+  font-size: 14px;
+}
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 14px;
+  color: var(--code-fg);
+}
+
+/* tables */
+.post-body table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+.post-body th, .post-body td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+.post-body th { background: var(--code-bg); }
+
+/* tags on single */
+.post-tags { margin-top: 24px; display: flex; gap: 8px; flex-wrap: wrap; }
+.meta-tag { color: var(--muted); font-size: 13px; }
+.meta-tag:hover { color: var(--accent); text-decoration: none; }
+
+/* terms (categories / tags index) */
+.terms { display: flex; flex-wrap: wrap; gap: 12px; padding: 20px 0; }
+.term-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 14px;
+  color: var(--fg);
+}
+.term-item:hover { border-color: var(--accent); text-decoration: none; }
+.term-count { color: var(--faint); font-size: 13px; }
+
+/* footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px 0 40px;
+  color: var(--faint);
+  font-size: 13px;
+}
+.site-footer p { margin: 0 0 4px; }
+.site-footer a { color: var(--muted); }
+.footer-powered { color: var(--faint); }
+
+/* responsive */
+@media (max-width: 560px) {
+  .home-title { font-size: 28px; }
+  .post > .post-title { font-size: 24px; }
+  .header-inner { flex-direction: column; }
+}

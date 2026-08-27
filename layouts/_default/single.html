@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <article class="post">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ if eq .Section "posts" }}
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        {{ range .Params.categories }}
+          <a class="meta-cat" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+    <div class="post-body">{{ .Content }}</div>
+    {{ if eq .Section "posts" }}
+      {{ with .Params.tags }}
+        <div class="post-tags">
+          {{ range . }}<a class="meta-tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </article>
+{{ end }}

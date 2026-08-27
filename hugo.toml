@@ -1,0 +1,25 @@
+baseURL = "https://lllxxxxxlll.github.io/"
+locale = "zh-cn"
+title = "李贤"
+enableRobotsTXT = true
+
+# 站点内文章统一放在 posts section
+[permalinks]
+  posts = "/posts/:filename/"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  author = "李贤"
+  subtitle = "AI Agent Engineer · 在 infra 中懂 Agent，在 Agent 中懂 infra"
+  github = "https://github.com/lllxxxxxlll"
+  email = "3108827314@qq.com"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    style = "github"
+    noClasses = false

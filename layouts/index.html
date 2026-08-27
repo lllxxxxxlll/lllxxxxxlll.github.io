@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <section class="home-intro">
+    <h1 class="home-title">{{ .Site.Title }}</h1>
+    <p class="home-subtitle">{{ .Site.Params.subtitle }}</p>
+    {{ with .Content }}<div class="home-body">{{ . }}</div>{{ end }}
+  </section>
+
+  <section class="post-list">
+    <h2 class="list-heading">最新文章</h2>
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ range first 5 $posts }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+    <p class="more-link"><a href="{{ "/posts/" | relURL }}">查看全部文章 →</a></p>
+  </section>
+{{ end }}
