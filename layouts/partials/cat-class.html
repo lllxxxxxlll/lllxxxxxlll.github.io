@@ -1,0 +1,2 @@
+{{- $colors := dict "踩坑" "cat-red" "Agent" "cat-blue" "算法" "cat-teal" "随笔" "cat-amber" -}}
+{{- default "cat-teal" (index $colors .) -}}

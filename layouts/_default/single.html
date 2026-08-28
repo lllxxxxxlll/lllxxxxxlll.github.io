@@ -5,7 +5,7 @@
       <div class="post-meta">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
         {{ range .Params.categories }}
-          <a class="meta-cat" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+          <a class="meta-cat {{ partial "cat-class.html" . }}" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
         {{ end }}
       </div>
     {{ end }}

@@ -1,0 +1,39 @@
+<aside class="sidebar">
+  <a class="sidebar-brand" href="{{ .Site.Home.RelPermalink }}">
+    <h1 class="sidebar-title">{{ .Site.Title }}</h1>
+    <p class="sidebar-subtitle">{{ .Site.Params.subtitle }}</p>
+  </a>
+
+  <nav class="sidebar-nav">
+    <a href="{{ .Site.Home.RelPermalink }}" {{ if .IsHome }}class="active"{{ end }}>首页</a>
+    <a href="{{ "/posts/" | relURL }}" {{ if eq .Section "posts" }}class="active"{{ end }}>文章</a>
+    <a href="{{ "/projects/" | relURL }}" {{ if eq .Section "projects" }}class="active"{{ end }}>项目</a>
+    <a href="{{ "/about/" | relURL }}" {{ if eq .Section "about" }}class="active"{{ end }}>关于</a>
+  </nav>
+
+  <div class="sidebar-section">
+    <h2 class="sidebar-heading">分类</h2>
+    <div class="sidebar-cats">
+      {{ range .Site.Taxonomies.categories.Alphabetical }}
+        <a class="sidebar-cat {{ partial "cat-class.html" .Page.Title }}" href="{{ .Page.RelPermalink }}">
+          <span>{{ .Page.Title }}</span>
+          <span class="count">{{ .Count }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h2 class="sidebar-heading">标签</h2>
+    <div class="sidebar-tags">
+      {{ range first 16 .Site.Taxonomies.tags.Alphabetical }}
+        <a class="sidebar-tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="sidebar-foot">
+    <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:{{ .Site.Params.email }}">Email</a>
+  </div>
+</aside>

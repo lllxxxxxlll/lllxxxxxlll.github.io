@@ -35,6 +35,19 @@ jobs:
       - name: Build
         run: hugo --gc --minify
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install StatiCrypt
+        run: npm install -g staticrypt@3.5.4
+
+      - name: Encrypt protected posts
+        run: bash scripts/encrypt-protected.sh
+        env:
+          ESSAY_PASSWORD: ${{ secrets.ESSAY_PASSWORD }}
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

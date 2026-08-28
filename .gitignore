@@ -5,6 +5,9 @@
 /resources/
 .hugo_build.lock
 
+# StatiCrypt 本地生成的 salt 配置
+.staticrypt.json
+
 # OS
 .DS_Store
 

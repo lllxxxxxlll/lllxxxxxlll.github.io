@@ -4,10 +4,14 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  {{ partial "header.html" . }}
-  <main class="container">
-    {{ block "main" . }}{{ end }}
-  </main>
-  {{ partial "footer.html" . }}
+  <div class="layout">
+    {{ partial "sidebar.html" . }}
+    <div class="content-area">
+      <main class="container">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ partial "footer.html" . }}
+    </div>
+  </div>
 </body>
 </html>

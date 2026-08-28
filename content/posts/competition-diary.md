@@ -2,6 +2,7 @@
 title: "竞赛随笔：just go for it and create your new life"
 date: "2025-08-06"
 draft: false
+protected: true
 categories: ["随笔"]
 tags: ["竞赛", "日记", "成长"]
 summary: "智能车比赛收官、算法刷题、YOLO 训练、CS:APP……用日记串起这个夏天。技术之外，更多是关于「重新出发」这件事本身。"
