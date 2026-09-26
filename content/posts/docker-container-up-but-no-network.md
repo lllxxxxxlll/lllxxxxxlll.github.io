@@ -1,6 +1,6 @@
 ---
 title: "Docker 容器 Up 但 curl 不通：端口映射为什么没生效"
-date: "2026-09-23"
+date: "2026-09-23T00:22:00+08:00"
 draft: false
 categories: ["踩坑"]
 tags: ["Docker", "网络", "容器", "WSL"]
