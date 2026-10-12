@@ -1,39 +1,27 @@
 ---
-title: "关于"
-description: "李贤的个人简历与简介"
+title: "关于 Gfit"
+description: "Gfit 的方向、经历与写作计划。"
 ---
 
-## 简介
+## 你好，我是 Gfit
 
-小红书数据存储中心实习生，2026 秋招 · Agent 开发方向。专注将 AI Agent 技术应用于分布式系统的根因分析自动化。
+**Go For it** 是我给自己的提醒：面对新领域，先开始，再通过实践和写作把问题想清楚。
 
-> 在 infra 中懂 Agent，在 Agent 中懂 infra。
+我已确定博士录取，正准备进入博士阶段。此前的实践主要在分布式数据系统、后端工程与 AI Agent；接下来希望深入 **AI Infra、分布式系统、并行计算与超节点**。目前正在补强 C++、CUDA 等基础，并尝试把工程经验带入新的研究问题。
 
-## 技能
+## 这个网站写什么
 
-**语言**：Java · Go · Python · C · SQL
+- **技术与系统**：分布式系统、Go、存储、工程排障与源码阅读。
+- **研究笔记**：并行计算、AI 基础设施、论文阅读与实验过程。
+- **工具与实践**：Agent、开发工具、真实项目中的取舍和踩坑。
+- **路上**：选择、成长、生活，以及值得留存的片段。
 
-**后端 & 中间件**：SpringBoot · GoFrame v2 · MySQL · GORM · Redis · Kafka · RabbitMQ
+文章是阶段性的理解，写下可验证的过程和结论；有新认识时，也会继续修订。
 
-**AI / Agent**：Eino · MCP · RAG · ReAct · Plan-Execute · Milvus · LangChain4j · DeepSeek
+## 过去的实践
 
-**Infra & 工具**：Docker · Nginx · Linux · Prometheus · JVM · JUC · Git
+在小红书数据存储中心实习期间，我参与 RedKV 集群管控平台相关开发，并围绕巡检、告警分析和根因定位探索 Agent 辅助值班方案。个人项目与练习包括 [OncallAgent](https://github.com/lllxxxxxlll/oncallAgent) 等。更完整的项目索引见 [项目页](/projects/)。
 
-## 实习经历
+## 联系
 
-### 小红书 · RedKV 数据存储中心 —— 管控平台开发实习生（2025.04 — 至今）
-
-- 参与 **RedKV**（Redis 协议 + RocksDB 引擎）集群管控平台前后端开发
-- 负责集群健康巡检、告警分析、**根因定位** —— 使用探针测试节点状态
-- 完整运维链路：业务侧 → **Corvus (proxy)** → Node → **Engine (RocksDB)**
-- 从日常根因分析痛点出发，探索 AI Agent **自动化值班**方案
-
-## 项目
-
-详见 [项目页](/projects/)。
-
-## 联系方式
-
-- Email：[3108827314@qq.com](mailto:3108827314@qq.com)
-- GitHub：[github.com/lllxxxxxlll](https://github.com/lllxxxxxlll)
-- Phone：150-9678-4576
+[GitHub](https://github.com/lllxxxxxlll) · [Email](mailto:3108827314@qq.com)

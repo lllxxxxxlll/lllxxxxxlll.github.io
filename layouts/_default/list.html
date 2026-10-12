@@ -1,20 +1,7 @@
 {{ define "main" }}
-  <header class="list-header">
-    <h1>{{ .Title }}</h1>
-    {{ with .Content }}<div class="list-desc">{{ . }}</div>{{ end }}
-    {{ if eq .Section "posts" }}
-      <p class="list-nav-links">
-        <a href="{{ "/categories/" | relURL }}">按分类浏览</a> ·
-        <a href="{{ "/tags/" | relURL }}">按标签浏览</a>
-      </p>
-    {{ end }}
-  </header>
-
-  <div class="post-list">
-    {{ range .Pages.ByDate.Reverse }}
-      {{ partial "post-card.html" . }}
-    {{ else }}
-      <p class="empty">暂无文章。</p>
-    {{ end }}
-  </div>
+<div class="wrap inner-page">
+  <header class="page-heading"><p class="eyebrow">GFIT / INDEX</p><h1>{{ .Title }}</h1>{{ with .Content }}<div>{{ . }}</div>{{ end }}</header>
+  {{ if eq .Section "posts" }}<div class="filter-links"><a href="{{ "/categories/" | relURL }}">浏览分类 ↗</a><a href="{{ "/tags/" | relURL }}">浏览标签 ↗</a></div>{{ end }}
+  <div class="post-list">{{ range .Pages.ByDate.Reverse }}{{ partial "post-card.html" . }}{{ else }}<p class="empty">内容正在整理中。</p>{{ end }}</div>
+</div>
 {{ end }}

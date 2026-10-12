@@ -1,10 +1,5 @@
 <article class="post-card">
-  <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-  <div class="post-meta">
-    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-    {{ range .Params.categories }}
-      <a class="meta-cat {{ partial "cat-class.html" . }}" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
-    {{ end }}
-  </div>
-  <p class="post-summary">{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+  <div class="post-card-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>{{ range first 1 .Params.categories }}<span>{{ . }}</span>{{ end }}</div>
+  <div class="post-card-main"><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 150 }}{{ end }}</p></div>
+  <a class="post-card-arrow" href="{{ .RelPermalink }}" aria-label="阅读 {{ .Title }}">↗</a>
 </article>

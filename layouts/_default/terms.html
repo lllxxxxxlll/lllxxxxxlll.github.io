@@ -1,5 +1,7 @@
 {{ define "main" }}
-  <header class="list-header">
+  <div class="wrap inner-page">
+  <header class="page-heading">
+    <p class="eyebrow">GFIT / EXPLORE</p>
     <h1>{{ .Title }}</h1>
   </header>
   <div class="terms">
@@ -9,5 +11,6 @@
         <span class="term-count">{{ .Count }}</span>
       </a>
     {{ end }}
+  </div>
   </div>
 {{ end }}

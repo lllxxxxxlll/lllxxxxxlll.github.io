@@ -1,21 +1,8 @@
 {{ define "main" }}
-  <article class="post">
-    <h1 class="post-title">{{ .Title }}</h1>
-    {{ if eq .Section "posts" }}
-      <div class="post-meta">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-        {{ range .Params.categories }}
-          <a class="meta-cat {{ partial "cat-class.html" . }}" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
-        {{ end }}
-      </div>
-    {{ end }}
-    <div class="post-body">{{ .Content }}</div>
-    {{ if eq .Section "posts" }}
-      {{ with .Params.tags }}
-        <div class="post-tags">
-          {{ range . }}<a class="meta-tag" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
-        </div>
-      {{ end }}
-    {{ end }}
-  </article>
+<article class="wrap article-page">
+  <a class="back-link" href="{{ if eq .Section "posts" }}{{ "/posts/" | relURL }}{{ else }}{{ .Site.Home.RelPermalink }}{{ end }}">← 返回{{ if eq .Section "posts" }}文章{{ else }}首页{{ end }}</a>
+  <header class="article-header"><p class="eyebrow">GFIT / {{ if eq .Section "posts" }}JOURNAL{{ else }}PAGE{{ end }}</p><h1>{{ .Title }}</h1>{{ if eq .Section "posts" }}<div class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 年 01 月 02 日" }}</time>{{ range .Params.categories }}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}</div>{{ end }}</header>
+  <div class="post-body">{{ .Content }}</div>
+  {{ if eq .Section "posts" }}<footer class="article-end"><span>Go For it.</span>{{ with .Params.tags }}<div>{{ range . }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}</div>{{ end }}</footer>{{ end }}
+</article>
 {{ end }}
