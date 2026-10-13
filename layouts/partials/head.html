@@ -4,5 +4,6 @@
 <title>{{ if .IsHome }}Gfit · Go For it{{ else }}{{ .Title }} · Gfit{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
-<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{ $style := resources.Get "css/style.css" | minify | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
 {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="Gfit RSS" href="{{ .RelPermalink }}">{{ end }}
