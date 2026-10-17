@@ -1,186 +1,211 @@
 ---
-title: "从零注册美区 Apple ID 到余额充值：一次真实踩坑记录"
+title: "美区 Apple ID 注册与充值：操作流程和常见报错排查"
 date: "2026-10-15"
 lastmod: "2026-10-17"
 draft: false
 categories: ["踩坑"]
 tags: ["Apple ID", "Apple Pay", "支付", "经验记录"]
-summary: "记录账户创建、地区核对、付款方式与余额充值中的报错，区分实际经历和仍待验证的原因。配图已遮挡个人敏感信息。"
+summary: "从账户创建、地区核对到礼品卡充值，结合真实截图整理操作步骤，并排查 None 选项、Apple Pay、绑卡和号码验证等常见问题。"
 ---
 
-从注册邮箱到核对账户地区，再到添加付款方式、充值余额和排查订阅入口，这次操作跨了一个多月。真正花时间的，是几次看上去相似、实际属于不同环节的报错。
+注册美区 Apple ID 时，我原本以为只要创建账户、设置付款方式、充入余额，就能顺利完成购买。实际操作下来，最费时间的是几个容易混淆的环节：账户地区没核对、付款方式找不到 None、把账户余额当成 Apple Pay，以及进入了与预期不同的订阅结账页面。
 
-这篇保留我的操作顺序，也修正当时过早下的结论：**操作之后成功，不等于已经证明之前失败的原因；余额充值成功，也不等于目标订阅已经成功。** 本文记录到余额充值和后续订阅排查，没有将尚未确认的订阅结果写成成功。
+这篇按“准备 → 注册 → 核对地区 → 设置付款 → 充值 → 排查购买”的顺序整理我的经历。如果你正卡在某一步，可以直接找到对应章节，文末也有报错速查表。
 
-记录时间：2026-09-12 至 2026-10-15；设备：iPhone、Safari。本文使用“Apple ID”这一习惯称呼，官方现称 Apple 账户。界面、价格和入口均为当时记录，以实际页面为准。
+操作记录：2026 年 9 月至 10 月，使用 iPhone 和 Safari。文中的 Apple ID 即现在的“Apple 账户”；界面和可用选项以实际页面为准。
 
-> 隐私说明：配图中的真实手机号、邮箱、姓名、出生日期、账单地址、银行卡尾号及密码长度等信息，已在图片像素中用实心黑块覆盖。正文和图注也已清理；保留的示例号仅用于说明当时的填表误区。
+## 01 开始前，准备好这几样东西
 
-## 01 先把几件事分开
-
-这次经历涉及五个环节：准备可用的联系方式 → 创建账户 → 核对商店地区与付款资料 → 为账户余额充值 → 确认目标购买的计费渠道和可用性。
-
-它们并不是“前一步完成，后一步必然可用”的关系。账户地区、支付方式、礼品卡适用地区，以及第三方服务在实际所在地的可用性，都需要分别确认。应按本人实际情况填写资料；更换地区、支付工具或充值余额，都不能替代服务本身的使用资格。
-
-## 02 准备邮箱、手机号和真实资料
-
-### 邮箱和手机号，先确认自己能长期使用
-
-我当时使用 Outlook 邮箱接收邮件。公开版将邮箱替换为 `name@example.com`，这只是写作示例。注册时应使用本人能收信、符合 Apple 页面要求的邮箱；如果提示已被使用，应先排查是否已有账户。
-
-我也曾用 +86 手机号尝试验证。但这只能说明我当时的操作经历，不能保证同一个号码可用于任意数量的账户，也不能说手机号与验证要求“完全无关”。以当前流程接受的国家码、号码格式和实际验证结果为准。
-
-### 地址和出生日期，不照抄教程
-
-原稿放过一组美国地址，也建议使用地址生成器和“免税州”资料。整理时我删掉了这些做法：**能够通过表单校验，不代表资料真实，也不能据此确认税务待遇或使用资格。** 姓名、出生日期和账单信息都应如实填写；银行卡资料应与金融机构记录一致。[Apple 的付款方式说明](https://support.apple.com/zh-cn/118429)也要求核对姓名和账单地址。
-
-## 03 账号无法创建：我当时做过哪些尝试
-
-### 第一次提交就报错
-
-我从 [Apple 账户官网](https://account.apple.com/)开始注册，提交后看到了 `Your account cannot be created at this time`。
-
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s01-account-not-created.png" alt="截图 1：首次提交后出现账户暂时无法创建的提示。图片验证码已遮挡。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 1：首次提交后出现账户暂时无法创建的提示。图片验证码已遮挡。</figcaption></figure>
-
-当时还犯了一个明显的填表错误：把示例号码 `(302) 555-0142` 当成了验证号码。这个示例号在公开版保留，用来提醒自己不要照抄；验证时应填写本人能够使用的号码。**仅凭这条通用报错，不能确认 Apple 是因为某个号段拒绝了创建。**
-
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s02-form-us-555.png" alt="截图 2：当时误用了示例号码；真实邮箱与密码长度已遮挡。示例号不能用于本人验证。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 2：当时误用了示例号码；真实邮箱与密码长度已遮挡。示例号不能用于本人验证。</figcaption></figure>
-
-我也修改过姓名等资料。原稿把名字过短、大小写形式与风控直接联系起来，但没有独立证据支持这个判断。这里保留当时表单的截图，个人信息已遮挡。
-
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s03-form-short-name.png" alt="截图 3：早期注册表单；姓名、出生日期和底部露出的邮箱均已遮挡。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 3：早期注册表单；姓名、出生日期和底部露出的邮箱均已遮挡。</figcaption></figure>
-
-### 修改资料后，仍然失败过
-
-我换成自己的手机号，并尝试过无痕浏览，仍然遇到同样的错误。
-
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s05-form-cn-phone.png" alt="截图 5：改用本人手机号后仍失败；邮箱、手机号与密码长度已遮挡。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 5：改用本人手机号后仍失败；邮箱、手机号与密码长度已遮挡。</figcaption></figure>
-
-后来我调整过网络环境并重新提交，之后创建成功。不过，那次同时经历了多次尝试和等待，无法把成功唯一归因于出口 IP。原稿中“中国 IP 必拒”“必须全程使用美国代理”的说法，证据不足，我不再把它们作为解决步骤。
-
-更有依据的排查顺序是检查连接和软件版本、稍后再试，或尝试 Apple 提供的其他创建入口；持续失败时联系 Apple 支持。参见 [Apple：无法创建账户时怎么办](https://support.apple.com/zh-cn/120636)。
-
-## 04 创建后，还要核对账户地区
-
-创建成功后，我在个人信息页看到“国家或地区”为中国大陆，这与我原先的预期不同。
-
-<figure style="max-width:860px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s07-profile-china-region.png" alt="截图 7：个人信息页当时显示中国大陆。姓名、邮箱和出生日期已遮挡。" width="1854" height="888" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 7：个人信息页当时显示中国大陆。姓名、邮箱和出生日期已遮挡。</figcaption></figure>
-
-这张截图能证明的是“当时页面显示了这个地区”，不能单凭它证明“Apple 偷偷按 IP 改了地区”。注册时的选择、当前登录账户和商店设置，都需要逐一核对。
-
-我后来按页面提示调整过地区设置。需要更改地区时，应先查看 [Apple 的官方准备条件](https://support.apple.com/zh-cn/118283)：处理余额、会阻止切换的订阅和待处理交易，并检查家人共享及新地区付款方式的要求。新账户也不意味着所有条件自动满足。
-
-## 05 为什么当时找不到 None
-
-我最初打开的付款方式页只有银联、抖音支付等选项，没有找到 `None / 无`。
-
-<figure style="max-width:860px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s06-payment-cn-ui.png" alt="截图 6：当时的付款方式选项。账单姓名已遮挡，界面语言本身不能确定账户地区。" width="1006" height="1081" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 6：当时的付款方式选项。账单姓名已遮挡，界面语言本身不能确定账户地区。</figcaption></figure>
-
-后来，我在 App Store 登录相应账户，经“检查 / Review”流程继续完善了资料。这是我当时走过的入口，不保证任何账户重登后都出现相同选项。
-
-原稿用“中文界面等于中国区”“英文界面等于美区”作判断，过于简单。语言可以单独设置，付款选项也会随地区和账户状态变化，应查看明确的国家或地区字段。是否能不登记付款方式，要按账户和购买项目的实际要求处理；不能由代理位置推断，也不应通过编造地址解决。
-
-## 06 Apple 账户余额和 Apple Pay，不能混为一谈
-
-我在账户已有余额后尝试扫码付款，看到 Apple Pay 的 `Service Unavailable`，当时误以为“余额充进去，任何 Apple Pay 页面就能用”。
-
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s08-applepay-unavailable.png" alt="截图 8：扫码后出现 Apple Pay Service Unavailable，截图不能确定具体根因。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 8：扫码后出现 Apple Pay Service Unavailable，截图不能确定具体根因。</figcaption></figure>
-
-| 概念 | 这次需要弄清的事 |
+| 项目 | 准备要点 |
 | --- | --- |
-| Apple 账户余额 | 可用于符合条件的 Apple 购买项目，包括部分 App 内购买和订阅；部分项目仍要求登记其他付款方式。 |
-| Apple Pay | 依赖受支持设备、卡片、发卡行和商户场景的支付服务；看到 Apple Pay 按钮，不代表能用 Apple 账户余额付款。 |
+| 邮箱 | 本人能够长期使用、可以接收验证邮件的邮箱。我当时使用 Outlook。 |
+| 手机号 | 能正常接收验证信息，填写时核对国家码。我这次使用的是 +86 号码。 |
+| 个人资料 | 如实填写姓名和出生日期。 |
+| 地区与账单资料 | 按本人实际情况填写；添加银行卡时，姓名和账单地址应与发卡行记录一致。 |
+| 购买目标 | 先确认需要的 App 或服务在实际所在地可用，以及它支持哪些购买渠道。 |
 
-参见 [Apple 账户余额的用途与限制](https://support.apple.com/zh-cn/118245)和 [Apple Pay 设置要求](https://support.apple.com/zh-cn/108398)。余额在部分 Apple 场景还可通过 Wallet 中的 Apple Account 卡使用，不能把两者说成毫无交集；但这也不等于余额可用于任意第三方 Apple Pay 结账。
+有一点值得提前想清楚：**创建账户、充值余额和完成某项订阅，是三个不同的结果。** 尤其在购买礼品卡前，应先确认目标购买是否支持使用账户余额，避免充完钱才发现用不上。
 
-这条 `Service Unavailable` 没有揭示具体根因。我无法仅凭截图判定是设备地区、网络、发卡地区还是临时服务问题，更不能把“美国设备地区＋美国卡＋美国 IP”写成 Apple Pay 的通用必要条件。
+## 02 创建账户：先把表单填写正确
 
-## 07 买礼品卡、绑卡和完成订阅，是不同交易
+我使用的入口是 [account.apple.com](https://account.apple.com/)。基本流程如下：
 
-### 官网买卡的记录，不能保证所有卡都能付款
+1. 进入创建 Apple 账户页面，填写姓名、出生日期和国家或地区。
+2. 填写邮箱，并按页面要求设置密码。
+3. 选择电话号码的国家码，输入本人可用的号码。
+4. 完成页面要求的验证，再登录检查账户信息。
 
-这次我尝试了 Apple 官网的礼品卡购买流程，并在后续记录中走到了账户余额充值。银行卡能否购买、可选面额、费用以及最终是否受理，都应以当时结账结果、发卡行和 Apple 规则为准。参见 [Apple 美国官网付款说明](https://www.apple.com/shop/help/payments)。
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s03-form-short-name.png" alt="Apple 账户注册表单。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>Apple 账户注册表单。</figcaption></figure>
 
-填写真实账单资料是必要的核对步骤，不能由此推导出“任何国际 Mastercard 都能在美国站成功购买”。购买前还要核对礼品卡种类和适用地区；Apple 对跨地区兑换有明确限制，参见 [无法兑换礼品卡时的说明](https://support.apple.com/zh-cn/108285)。
+### 遇到 Your account cannot be created at this time
 
-### 这张卡添加到账户时，确实失败了
+我的第一次提交就遇到了这条报错。
 
-我在 `Add Payment` 页面提交资料后，遇到 `There was an error. Please try later.`。
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s01-account-not-created.png" alt="提交后出现“此时无法创建账户”。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>提交后出现“此时无法创建账户”。</figcaption></figure>
 
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s10-add-payment-error.png" alt="截图 10：添加付款方式后出现通用错误。账单姓名和街道地址已遮挡。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 10：添加付款方式后出现通用错误。账单姓名和街道地址已遮挡。</figcaption></figure>
+回头检查表单时，我发现自己照抄了示例号码 `(302) 555-0142`。示例号码只适合展示格式，不能用于本人验证。填写联系方式时，最基本的一步就是确认邮箱能收信、手机号能接收验证信息。
 
-当时卡片记录里的账单资料与我填写的资料存在差异，属于需要核查的问题。但这个通用错误并不能证明具体是哪项校验失败，也不能据此概括为“所有中国发行的卡一律不能使用”。姓名、账单信息、支持的付款方式，以及银行是否允许这笔交易，都需要分别确认。
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s02-form-us-555.png" alt="注册表单中的示例号码。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>注册表单中的示例号码。</figcaption></figure>
 
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s13-mastercard-billing-cn.png" alt="截图 13：Wallet 账单信息页。卡片缩略图、姓名、地址和邮编已遮挡，保留国家或地区字段。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 13：Wallet 账单信息页。卡片缩略图、姓名、地址和邮编已遮挡，保留国家或地区字段。</figcaption></figure>
+改用自己的手机号后，我又尝试了无痕浏览，仍然失败过。
 
-我也试过通过不同钱包付款，仍未完成目标交易。**能添加卡片、能购买礼品卡、能绑定商店账户、能支付某项订阅，是四个不同结果。** 换一个钱包不会自动改变卡片或账户的资格；原稿关于 BIN 识别、地址逐字符比对和“必拒”的内部机制推断，没有证据支撑，已删去。
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s05-form-cn-phone.png" alt="切换手机号国家码后的注册页面。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>切换手机号国家码后的注册页面。</figcaption></figure>
 
-### 我不再用价格给代充“定罪”或打成功率分
+后来经过调整网络环境、等待和重新提交，我完成了账户创建。这条报错比较笼统，不适合只凭一次成功就把原因归结为 IP 或某个表单字段。遇到类似情况，可以按下面的顺序排查：
 
-原稿曾用雷达图给礼品卡、虚拟卡和代充打分，还按报价判断是否盗刷。这些数字没有数据依据，价格也不足以证明交易来源，因此不再保留。
+1. 检查邮箱、国家码和手机号是否填写正确。
+2. 确认网络连接正常，设备系统和浏览器保持更新。
+3. 稍后重试，或使用 Apple 提供的其他创建入口。
+4. 持续失败时，记录错误文案并联系 Apple 支持。
 
-对我而言，选择支付方式前要先确认目标服务可用、付款资料真实、渠道可核查。不会把虚拟卡、伪造美国账单地址或共享账号写成遇到支付限制后的标准解法，也不向陌生代充者提供密码、验证码或礼品卡兑换码。
+这些方向也可参考 [Apple 的账户创建故障说明](https://support.apple.com/zh-cn/120636)。
 
-## 08 网页结账和 App Store 内购，要看实际订单
+## 03 注册完成后，先核对账户地区
 
-充值后，我在尝试订阅 ChatGPT 时，看到了带 Apple Pay 和 Link 按钮的结账界面，没有找到预想中的 Apple 账户余额入口。
+账户创建成功后，我在个人信息页看到“国家或地区”为中国大陆，与预期不同。这里的教训是：**填完注册表单后，还需要检查保存下来的账户设置。**
 
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s11-stripe-applepay-checkout.png" alt="截图 11：当时的网页结账与 Apple Pay 界面。邮箱、账单个人信息、卡片缩略图和尾号已遮挡。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 11：当时的网页结账与 Apple Pay 界面。邮箱、账单个人信息、卡片缩略图和尾号已遮挡。</figcaption></figure>
+<figure style="max-width:860px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s07-profile-china-region.png" alt="个人信息页中的国家或地区设置。" width="1854" height="888" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>个人信息页中的国家或地区设置。</figcaption></figure>
 
-这时我才开始区分网页商户结账与 Apple 管理的 App 内购买。Apple Pay 是一种支付方式，出现它不代表订单就是 App Store 内购；判断时还应看完整结账页面、购买确认和收据。单凭一个按钮，也不足以解释全部后端处理方式。
+可以登录 [Apple 账户官网](https://account.apple.com/)，进入“个人信息”，查看“国家或地区”；涉及 App Store 购买时，也要确认当前“媒体与购买项目”使用的账户和地区。
 
-| 需要确认的问题 | 应查看的地方 |
+如果确实需要更改地区，先处理这些事项：
+
+- 用完账户余额。
+- 取消会阻止切换的订阅，并等待订阅期结束。
+- 等待预购、退款等尚未完成的项目处理完毕。
+- 检查家人共享状态，以及新地区要求的付款方式和账单资料。
+
+具体入口与条件见 [Apple：更改账户国家或地区](https://support.apple.com/zh-cn/118283)。建议先确认地区，再购买礼品卡或充入余额，减少后续切换的麻烦。
+
+## 04 付款方式里找不到 None，先检查账户和入口
+
+我最初打开付款设置时，只看到了银联、抖音支付等选项，没有找到 `None / 无`。
+
+<figure style="max-width:860px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s06-payment-cn-ui.png" alt="付款方式页面中的可选项目。" width="1006" height="1081" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>付款方式页面中的可选项目。</figcaption></figure>
+
+后来我在 App Store 登录相应账户，通过“检查 / Review”继续完善账户信息。当时走过的步骤是：
+
+1. 打开 App Store，进入账户页面，确认登录的是准备使用的 Apple 账户。
+2. 如果出现“此 Apple ID 尚未在 iTunes Store 使用过”等提示，进入“检查 / Review”。
+3. 核对国家或地区，再按页面要求填写付款资料。
+4. 如果提供 `None / 无`，可以按需要选择；如果没有，则检查当前账户和购买项目的付款要求。
+
+判断地区时，应看明确的国家或地区字段，不能只看页面是中文还是英文。添加银行卡时，还要核对姓名和账单地址，参见 [Apple 的付款方式设置说明](https://support.apple.com/zh-cn/118429)。
+
+## 05 先分清 Apple 账户余额和 Apple Pay
+
+账户里有余额后，我曾尝试扫码付款，结果 Apple Pay 显示 `Service Unavailable`。这让我意识到，自己把账户余额和钱包里的银行卡支付混在了一起。
+
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s08-applepay-unavailable.png" alt="Apple Pay 显示 Service Unavailable。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>Apple Pay 显示 Service Unavailable。</figcaption></figure>
+
+| 对比项 | Apple 账户余额 | Apple Pay |
+| --- | --- | --- |
+| 资金或付款来源 | 账户中的余额，例如礼品卡兑换所得 | 通常是 Wallet 中符合条件的银行卡 |
+| 典型使用场景 | 支持余额的 Apple 购买、部分 App 内购买和订阅 | 支持 Apple Pay 的商户结账 |
+| 使用前要确认什么 | 购买项目是否支持余额，是否仍需登记其他付款方式 | 设备、卡片、发卡行和商户场景是否受支持 |
+
+**看到 Apple Pay 按钮，不代表这笔交易能从 Apple 账户余额中扣款。** 账户余额在部分 Apple 场景也可通过 Wallet 中的 Apple Account 卡使用，但不能因此推导为适用于任意第三方结账。
+
+遇到 `Service Unavailable` 时，先确认自己要使用的究竟是哪种付款方式，再检查对应要求：
+
+- [Apple 账户余额可以购买哪些项目](https://support.apple.com/zh-cn/118245)
+- [设置 Apple Pay](https://support.apple.com/zh-cn/108398)
+
+## 06 礼品卡充值与银行卡绑定，分开检查
+
+### 购买和兑换礼品卡
+
+这次我尝试了 Apple 官网的礼品卡购买流程，之后完成了账户余额充值。对第一次操作的人来说，购买前比兑换时更值得仔细核对：
+
+1. **确认用途。** 核实目标购买是否支持账户余额，以及需要的实际金额。
+2. **确认卡种和地区。** 礼品卡的适用范围应与准备使用的账户和商店匹配。
+3. **确认付款资料。** 使用真实账单信息，查看结账页的付款选项和最终费用。
+4. **完成购买后保存凭证。** 按兑换说明操作，再查看余额是否到账。
+
+购买可参考 [Apple 美国官网付款说明](https://www.apple.com/shop/help/payments)；兑换失败时，先对照 [Apple 的礼品卡故障说明](https://support.apple.com/zh-cn/108285)检查卡种、激活状态和地区。
+
+### 绑卡报 There was an error. Please try later.
+
+我还试过把国内银行发行的 Mastercard 添加到账户中，提交后出现了这条错误。
+
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s10-add-payment-error.png" alt="添加付款方式时出现错误。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>添加付款方式时出现错误。</figcaption></figure>
+
+排查时，我发现填写的资料与卡片记录中的账单信息存在差异。遇到类似问题，可以先核对：
+
+- 卡号、有效期等信息是否正确。
+- 姓名和账单地址是否与发卡行记录一致。
+- 当前账户地区是否支持这类付款方式。
+- 发卡行是否允许这笔交易，或是否需要进一步验证。
+
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s13-mastercard-billing-cn.png" alt="Wallet 中的银行卡账单信息页。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>Wallet 中的银行卡账单信息页。</figcaption></figure>
+
+我也尝试过换一个钱包付款，但没有因此完成目标交易。这里可以记住一条经验：**能把卡添加进钱包，不等于这张卡能用于所有商户或订阅。** 礼品卡购买成功，也不代表同一张卡一定能绑定到商店账户。
+
+## 07 有余额却找不到订阅付款入口，先看计费渠道
+
+充值后，我尝试订阅 ChatGPT，看到的却是带 Apple Pay 和 Link 按钮的网页结账界面，没有预想中的账户余额入口。
+
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s11-stripe-applepay-checkout.png" alt="包含 Apple Pay 和 Link 按钮的结账页面。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>包含 Apple Pay 和 Link 按钮的结账页面。</figcaption></figure>
+
+这类问题，先不要急着继续充值。需要确认的是：**当前订单由网页商户计费，还是由 Apple 的 App Store 内购计费。**
+
+| 要确认的事 | 检查方法 |
 | --- | --- |
-| 谁负责这笔订阅计费 | 购买确认页、商户信息和最终收据 |
-| 是否可用 Apple 账户余额 | 该购买项目是否属于 Apple 支持的余额使用场景，以及实际扣款规则 |
-| 余额是否足够、是否仍需其他付款方式 | 最终确认页、税费和账户付款要求 |
-| 能否使用目标服务 | 服务在实际所在地的支持范围、账户资格及当前可用入口 |
+| 谁负责计费 | 查看购买确认页、商户信息和收据。 |
+| 能否用 Apple 账户余额 | 确认这笔订单是否属于 Apple 支持的余额使用场景。 |
+| 金额是否足够 | 核对最终价格、税费，以及是否要求其他付款方式。 |
+| 订阅入口是否可用 | 确认服务在实际所在地的支持范围，以及当前账户可用的购买入口。 |
 
-我还尝试过在网页结账中使用 Wallet 的银行卡，最终仍没有完成这笔付款。截图中的金额只是当时界面显示，不代表当前价格或已成功扣款。
+我还在这个结账流程中尝试过 Wallet 的银行卡，仍未完成付款。
 
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s12-stripe-applepay-sheet.png" alt="截图 12：当时的 Apple Pay 确认页。账单个人信息、卡片缩略图和尾号已遮挡；画面不代表付款完成。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 12：当时的 Apple Pay 确认页。账单个人信息、卡片缩略图和尾号已遮挡；画面不代表付款完成。</figcaption></figure>
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s12-stripe-applepay-sheet.png" alt="网页结账中唤起的 Apple Pay 确认页。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>网页结账中唤起的 Apple Pay 确认页。</figcaption></figure>
 
-原稿建议不断换入口、重装以“触发内购”，或用虚拟卡作为唯一后路。这些都不能保证成功。我现在会先确认服务资格和当前正式购买入口，再核对订单；看不到可用渠道时，不继续充值去赌结果。OpenAI 的计划和功能可用性应以[官方说明](https://learn.chatgpt.com/docs/pricing)及实际账户页面为准。
+这次经历中，余额充值已经完成，目标订阅仍停留在排查阶段。对读者来说，更值得参考的顺序是：**先确认服务与计费渠道，再准备对应的付款方式，最后决定是否充值。**
 
-### App Store 的“账户被禁用”提示
+### 更新 App 时提示账户被禁用
 
-中途更新 App 时，我还遇到“你的账户已在 App Store 和 iTunes 中被禁用”。
+中途更新 App 时，我还遇到了“你的账户已在 App Store 和 iTunes 中被禁用”。
 
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s09-appstore-account-disabled.png" alt="截图 9：更新 App 时出现 App Store 和 iTunes 账户被禁用提示。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 9：更新 App 时出现 App Store 和 iTunes 账户被禁用提示。</figcaption></figure>
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s09-appstore-account-disabled.png" alt="更新 App 时出现 App Store 和 iTunes 账户被禁用提示。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>更新 App 时出现 App Store 和 iTunes 账户被禁用提示。</figcaption></figure>
 
-当时其他下载或网页登录仍能进行，是排查线索，不能据此认定账户完全正常，也不能断言是“旧 Apple ID 下载导致签名不匹配”。原稿没有足够证据支持这个根因。
+即使其他下载或网页登录仍能进行，也应继续检查“媒体与购买项目”的账户状态。遇到停用提示，按 [Apple 官方说明](https://support.apple.com/zh-cn/102640)请求重新激活或联系 Apple 支持；重装 App 不能代替账户恢复。
 
-遇到 Apple 的媒体与购买项目账户停用提示，应优先按 [Apple 的官方说明](https://support.apple.com/zh-cn/102640)请求重新激活或联系 Apple 支持。删除重装不能保证解决账户停用，可能还涉及本地数据；OpenAI 支持也不能解除 Apple 侧的限制。
+## 08 手机号选了 +86，却提示必须是 7 位数字
 
-## 09 第二次操作：号码明明选了 +86，为什么提示 7 位
+第二次操作时，我先进入 `Add Payment` 页面。这一页只有姓名和地址，没有电话字段。
 
-第二次注册时，我看到的 `Add Payment` 页面只有姓名和地址，没有电话字段。这只能描述截图中这一页，不能保证其他版本或后续步骤完全相同。
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s14-add-payment-no-phone.png" alt="Add Payment 页面中的账单资料字段。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>Add Payment 页面中的账单资料字段。</figcaption></figure>
 
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s14-add-payment-no-phone.png" alt="截图 14：第二次操作中的 Add Payment 页面。姓名和地址已遮挡；此页未显示电话字段。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 14：第二次操作中的 Add Payment 页面。姓名和地址已遮挡；此页未显示电话字段。</figcaption></figure>
+随后出现单独的 `Phone Number` 页面，国家码显示 `China mainland (+86)`。
 
-之后的 `Phone Number` 页显示 `China mainland (+86)`，号码栏带有空格和短横线。完整号码在公开版已遮挡。
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s16-phone-number-page.png" alt="Phone Number 页面中的国家码选项。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>Phone Number 页面中的国家码选项。</figcaption></figure>
 
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s16-phone-number-page.png" alt="截图 16：号码页显示 +86；本人手机号已完整遮挡。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 16：号码页显示 +86；本人手机号已完整遮挡。</figcaption></figure>
+点击 Next 后，系统提示：
 
-点 Next 后，出现了 `The phone number must be a 7-digit number`。
+```text
+The phone number must be a 7-digit number.
+```
 
-<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s15-phone-7digit-error.png" alt="截图 15：点击 Next 后出现号码须为 7 位的提示。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>截图 15：点击 Next 后出现号码须为 7 位的提示。</figcaption></figure>
+<figure style="max-width:400px;margin:1.8rem auto"><img src="/images/posts/us-apple-id-guide/s15-phone-7digit-error.png" alt="点击 Next 后出现号码须为 7 位的提示。" width="1179" height="2556" loading="lazy" style="display:block;max-width:100%;height:auto"><figcaption>点击 Next 后出现号码须为 7 位的提示。</figcaption></figure>
 
-我当时怀疑是号码格式或地区校验出现了不一致。但**显示出来的分隔符可能由界面自动添加，不能由此确认用户输入有误，更不能确认后端把它按美国号码解析。** 此报错也不足以证明任何地区账户都必须使用美国号码。
+遇到这种“国家码与位数要求看起来不一致”的情况，可以按以下顺序排查：
 
-可以先核对国家码与号码是否属于同一地区，按当前字段说明重新输入本人可用的号码，避免手动加入多余分隔符；持续失败时记录入口、系统版本和错误文案，通过 Apple 支持排查。切换官方网页入口可以作为尝试，不能保证网页校验更宽松。本次素材没有证明“去掉分隔符后已经成功”，因此这里保留为待验证的排查方向。
+1. 核对国家码与号码实际所属地区。
+2. 按当前字段要求重新输入，避免手动加入多余的空格、短横线或括号。
+3. 留意界面是否会自动格式化号码；显示分隔符本身不一定代表输入有误。
+4. 仍然失败时，记录操作入口、系统版本和完整错误文案，向 Apple 支持反馈；也可以尝试官方网页入口。
 
-## 附录：下次遇到这些现象，我会先检查什么
+我当时怀疑与格式或地区校验有关，但还没有确认具体原因，也没有验证出稳定的解决方法。这一节更适合作为排查参考，不建议直接按“7 位”提示截短自己的号码。
 
-| 现象 | 先做的核查 |
+## 报错速查表
+
+| 现象 | 优先检查 |
 | --- | --- |
-| 账户暂时无法创建 | 联系方式、软件和连接状态、官方入口；稍后重试或联系 Apple |
-| 账户地区与预期不同 | 核对当前账户和明确的地区字段，按官方条件处理 |
-| 没有 None 选项 | 当前账户、商店地区和付款要求，不凭页面语言判断 |
-| Apple Pay 不可用 | 区分支付方式与账户余额，检查受支持的设备、卡片和商户场景 |
-| 绑卡报通用错误 | 核对真实账单资料和付款方式支持情况，联系发卡行或 Apple |
-| 有余额却无法订阅 | 确认服务资格、计费渠道、项目是否支持余额，以及最终金额 |
-| App Store 账户被停用 | 按 Apple 指引请求重新激活或联系 Apple 支持 |
-| 电话号码提示 7 位 | 核对国家码和字段要求；格式原因仍需验证 |
-
-这次最有用的收获，是把账户创建、地区设置、余额充值和订阅计费拆开核查。报错截图值得保留，原因判断则需要证据。一次走通的操作，可以作为个人记录；把它写成人人必定成功的流程，就超出了这次经历能够证明的范围。
+| Your account cannot be created at this time | 联系方式、网络连接、软件版本；稍后重试或使用其他官方入口。 |
+| 账户地区与预期不同 | 当前登录账户、国家或地区字段，以及地区切换条件。 |
+| 付款方式没有 None | 当前账户、商店地区和付款要求。 |
+| Apple Pay 显示 Service Unavailable | 是否混淆了余额与 Apple Pay，以及设备、卡片和商户是否支持。 |
+| 添加银行卡失败 | 卡片信息、真实账单资料、地区支持情况和发卡行限制。 |
+| 有余额却无法订阅 | 服务可用性、实际计费渠道、余额适用范围与最终金额。 |
+| App Store 账户被停用 | 按 Apple 指引请求重新激活或联系支持。 |
+| 手机号提示必须为 7 位 | 国家码、字段格式和当前操作入口，不要直接截短号码。 |
