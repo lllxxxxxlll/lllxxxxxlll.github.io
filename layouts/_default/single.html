@@ -2,6 +2,10 @@
 <article class="wrap article-page">
   <a class="back-link" href="{{ if eq .Section "posts" }}{{ "/posts/" | relURL }}{{ else }}{{ .Site.Home.RelPermalink }}{{ end }}">← 返回{{ if eq .Section "posts" }}文章{{ else }}首页{{ end }}</a>
   <header class="article-header"><p class="eyebrow">GFIT / {{ if eq .Section "posts" }}JOURNAL{{ else }}PAGE{{ end }}</p><h1>{{ .Title }}</h1>{{ if eq .Section "posts" }}<div class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 年 01 月 02 日" }}</time>{{ range .Params.categories }}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}</div>{{ end }}</header>
+  {{ if .Params.learning_note }}
+  <aside class="learning-note-context" aria-label="所属专题"><a href="{{ "/categories/学习手记/" | relURL }}">学习手记 ↗</a><p>从真实疑惑出发，留下代码、验证过程和理解的变化。</p></aside>
+  <details class="learning-note-toc"><summary>本文目录</summary>{{ .TableOfContents }}</details>
+  {{ end }}
   <div class="post-body">{{ .Content }}</div>
   {{ if eq .Section "posts" }}<footer class="article-end"><span>Go For it.</span>{{ with .Params.tags }}<div>{{ range . }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}</div>{{ end }}</footer>{{ end }}
 </article>
