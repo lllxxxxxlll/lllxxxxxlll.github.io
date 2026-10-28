@@ -1,0 +1,32 @@
+mode=0
+construct, alive=1
+sum=499500
+准备进入内部域
+construct, alive=2
+准备退出内部域
+destruct, alive=1
+已经退出内部域
+normal exit
+destruct, alive=0
+mode=1
+construct, alive=1
+sum=499500
+准备进入内部域
+construct, alive=2
+准备退出内部域
+destruct, alive=1
+已经退出内部域
+early return
+destruct, alive=0
+mode=2
+construct, alive=1
+sum=499500
+准备进入内部域
+construct, alive=2
+准备退出内部域
+destruct, alive=1
+已经退出内部域
+throw
+destruct, alive=0
+caught: demo
+PASS
