@@ -1,0 +1,41 @@
+2026-11-05: 本次发布整理版验证。与原始学习对话中的测试反馈分别记录。
+MSVC C++17 /W4 /EHsc /utf-8 /fsanitize=address /Zi
+本机执行 AddressSanitizer；未执行 GCC/WSL、UBSan 或 LeakSanitizer。
+
+buffer_move_lab.cpp
+move construction PASS
+move assignment PASS
+self move PASS
+empty source and const view PASS
+PASS
+Exit code: 0; no AddressSanitizer error reported.
+
+chunked_lab.cpp
+n=10, chunk=4, sum=145
+n=8, chunk=4, sum=108
+n=3, chunk=8, sum=33
+n=5, chunk=1, sum=60
+n=0, chunk=4, sum=0
+PASS
+Exit code: 0; no AddressSanitizer error reported.
+
+merged_lab.cpp
+sum=108
+construct
+after borrow: 15
+inside consume
+destruct
+after consume
+PASS
+Exit code: 0; no AddressSanitizer error reported.
+
+ownership_lab.cpp
+sum=499500
+throw
+Trace destruct
+caught: demo
+PASS
+Exit code: 0; no AddressSanitizer error reported.
+
+consume(p) 负向编译测试：按预期失败，C2280 / unique_ptr 拷贝被删除。
+AddressSanitizer 通过只覆盖本次执行路径，不代表完成泄漏检测或任意输入验证。
