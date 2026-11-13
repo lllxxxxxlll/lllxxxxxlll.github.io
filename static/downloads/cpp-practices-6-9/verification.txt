@@ -1,0 +1,31 @@
+2026-11-12 整理版验证：MSVC C++17 /W4 /EHsc；本次未运行 TSan。
+thread_chunk_lab
+n=10,sum=145
+n=9,sum=126
+n=1,sum=10
+n=0,sum=0
+n=100000,sum=5000950000
+PASS
+
+thread_sum_lab
+n=10, sum=55
+n=9, sum=45
+n=1, sum=1
+n=0, sum=0
+n=1000, sum=500500
+PASS
+
+mutex_sum_lab
+n=0, sum=0
+n=1, sum=-3
+n=9, sum=-5
+n=10, sum=-6
+n=1000, sum=-3
+PASS
+
+atomic_count_lab
+jobs/thread=0, total=0
+jobs/thread=1, total=2
+jobs/thread=1000, total=2000
+jobs/thread=100000, total=200000
+PASS
